@@ -95,7 +95,7 @@ while is_started do -- Start a loop while the bot should be running.
 	if res then
 		for i,v in ipairs(res.result) do -- Go through every new message.
 			last_update = v.update_id
-			on_msg_receive(v.message)
+			if v.message then on_msg_receive(v.message) end
 		end
 	else
 		print(config.errors.connection)
